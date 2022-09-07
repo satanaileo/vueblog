@@ -11,22 +11,22 @@ import java.io.Serializable;
 
 @Data
 public class Result implements Serializable {
-    private String code;
+    private int code;
     private String msg;
     private Object data;
 
     public static Result succ(Object data) {
         Result result = new Result();
-        result.setCode("0");
+        result.setCode(200);
         result.setData(data);
         result.setMsg("操作成功!");
         return result;
     }
 
-    public static Result succ(String msg, Object data) {
+    public static Result succ(int code, String msg, Object data) {
         Result result = new Result();
         result.setMsg(msg);
-        result.setCode("0");
+        result.setCode(code);
         result.setData(data);
         return result;
     }
@@ -34,7 +34,7 @@ public class Result implements Serializable {
     public static Result fail(String msg) {
         Result result = new Result();
         result.setData(null);
-        result.setCode("-1");
+        result.setCode(400);
         result.setMsg(msg);
         return result;
     }
@@ -43,7 +43,15 @@ public class Result implements Serializable {
         Result result = new Result();
         result.setMsg(msg);
         result.setData(data);
-        result.setCode("-1");
+        result.setCode(400);
+        return result;
+    }
+
+    public static Result fail(int code, String msg, Object data) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setData(data);
+        result.setMsg(msg);
         return result;
     }
 }

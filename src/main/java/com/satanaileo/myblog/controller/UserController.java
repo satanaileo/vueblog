@@ -4,11 +4,8 @@ package com.satanaileo.myblog.controller;
 import com.satanaileo.myblog.entity.User;
 import com.satanaileo.myblog.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -28,6 +25,11 @@ public class UserController {
     public User testSelect(@PathVariable("id") Long id) {
         User user = iUserService.getById(id);
         return user;
+    }
+
+    @PostMapping("/save")
+    public Object testUser(@Validated @RequestBody User user) {
+        return user.toString();
     }
 
 }

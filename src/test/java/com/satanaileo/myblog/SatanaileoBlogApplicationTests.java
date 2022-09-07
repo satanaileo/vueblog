@@ -3,13 +3,9 @@ package com.satanaileo.myblog;
 import com.satanaileo.myblog.entity.User;
 import com.satanaileo.myblog.mapper.UserMapper;
 import com.satanaileo.myblog.service.IUserService;
-import org.apache.velocity.runtime.directive.Foreach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.sound.midi.Soundbank;
-import java.util.List;
 
 @SpringBootTest
 class SatanaileoBlogApplicationTests {

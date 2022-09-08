@@ -1,13 +1,12 @@
 package com.satanaileo.myblog;
 
+import cn.hutool.crypto.SecureUtil;
 import com.satanaileo.myblog.entity.User;
 import com.satanaileo.myblog.mapper.UserMapper;
 import com.satanaileo.myblog.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 class SatanaileoBlogApplicationTests {
     @Autowired
     IUserService iUserService;
@@ -31,6 +30,11 @@ class SatanaileoBlogApplicationTests {
     void testSelectById() {
         User user = userMapper.selectById(1);
         System.out.println(user);
+    }
+    @Test
+    void testMd5() {
+        String s = SecureUtil.md5("123456");
+        System.out.println(s);
     }
 
 }

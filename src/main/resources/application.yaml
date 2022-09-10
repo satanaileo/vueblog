@@ -17,4 +17,4 @@ satanaileo:
     expire: 604800
     header: token
 server:
-  port: 8899
+  port: 8081

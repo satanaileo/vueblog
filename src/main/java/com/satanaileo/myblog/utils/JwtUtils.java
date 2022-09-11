@@ -50,7 +50,7 @@ public class JwtUtils {
     public Claims getClaimByToken(String token) {
         return Jwts.parser()
                 .setSigningKey(secret)
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody();
     }
     

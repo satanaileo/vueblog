@@ -10,7 +10,6 @@ import com.satanaileo.myblog.entity.User;
 import com.satanaileo.myblog.service.IUserService;
 import com.satanaileo.myblog.utils.JwtUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +27,6 @@ public class AccountController {
     @Autowired
     IUserService iUserService;
 
-    @CrossOrigin
     @PostMapping("/login")
     public Result login(@RequestBody(required = false) LoginDto loginDto, HttpServletResponse response) {
         User user = iUserService.getOne(new QueryWrapper<User>().eq("username", loginDto.getUsername()));
@@ -49,9 +47,9 @@ public class AccountController {
                 .map());
     }
 
-    @RequiresAuthentication
+//    @RequiresAuthentication
     @GetMapping("/logout")
-    public Result logout() {
+    public Result logout(HttpServletResponse response) {
         SecurityUtils.getSubject().logout();
         return Result.succ(null);
     }

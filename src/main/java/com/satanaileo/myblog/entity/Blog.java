@@ -39,7 +39,7 @@ public class Blog implements Serializable {
     @NotBlank(message = "摘要不能为空")
     private String description;
 
-    @NotBlank(message = "内容不能为空")
+//    @NotBlank(message = "内容不能为空")
     private String content;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

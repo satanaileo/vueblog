@@ -10,8 +10,12 @@ import com.satanaileo.myblog.entity.User;
 import com.satanaileo.myblog.service.IUserService;
 import com.satanaileo.myblog.utils.JwtUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -47,7 +51,7 @@ public class AccountController {
                 .map());
     }
 
-//    @RequiresAuthentication
+    @RequiresAuthentication
     @GetMapping("/logout")
     public Result logout(HttpServletResponse response) {
         SecurityUtils.getSubject().logout();

@@ -18,3 +18,7 @@ satanaileo:
     header: token
 server:
   port: 8081
+
+shiro-redis:
+  enabled: true
+  redis-manager.host: 192.168.191.129:6379

@@ -60,6 +60,7 @@ public class BlogController {
         }
 
         BeanUtil.copyProperties(blog, tmp, "id", "userId", "created", "status");
+        tmp.setLastLogin(LocalDateTime.now());
         iBlogService.saveOrUpdate(tmp);
         return Result.succ(null);
     }

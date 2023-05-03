@@ -4,6 +4,9 @@ spring:
     url: jdbc:mysql://localhost:3306/satanaileoblog
     username: root
     password: 123456
+  redis:
+    host: localhost
+    port: 6379
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
 
@@ -19,6 +22,22 @@ satanaileo:
 server:
   port: 8081
 
-shiro-redis:
-  enabled: true
-  redis-manager.host: localhost:6379
+knife4j:
+  enable: true
+  openapi:
+    title: blog文档
+    description: "`我是测试`,**你知道吗**
+    # aaa"
+    email: satanaileos@gmail.com
+    concat: satanaileo
+    url: https://docs.xiaominfo.com
+    version: v4.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      test1:
+        group-name: 分组名称
+        api-rule: package
+        api-rule-resources:
+          - com.satanaileo.myblog.controller
